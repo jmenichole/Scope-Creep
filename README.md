@@ -2,6 +2,8 @@
 
 **Tagline:** "Secure your scope. Save your sanity."
 
+🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Creep/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
+
 ## What It Is
 
 AI-powered tool that auto-enforces freelance contracts. When a client adds non-agreed tasks, the system flags it, sends alerts, or locks the project until renegotiation.
@@ -226,6 +228,30 @@ System: Resumes project, updates budget, unlocks payments
 - [ ] Mobile app (iOS/Android)
 - [ ] Marketplace integrations
 - [ ] Multi-language support
+
+## 🌐 GitHub Pages Website
+
+A professional landing page is available at: **[https://jmenichole.github.io/Scope-Creep/](https://jmenichole.github.io/Scope-Creep/)**
+
+The website showcases:
+- 🎯 Product features and benefits
+- 📊 How it works (step-by-step flow)
+- 💰 Pricing plans
+- 🔌 API documentation with examples
+- 📱 Fully responsive design (desktop, tablet, mobile)
+- ✨ Interactive animations and smooth scrolling
+
+### Local Development
+
+To run the website locally:
+
+```bash
+cd docs
+python3 -m http.server 8080
+# Open http://localhost:8080 in your browser
+```
+
+Or use any static file server of your choice.
 
 ## 📝 License
 
