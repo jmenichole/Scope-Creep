@@ -1,0 +1,24 @@
+{
+  "name": "scope-creep-insurance",
+  "version": "1.0.0",
+  "description": "Secure your scope. Save your sanity. AI-powered tool that auto-enforces freelance contracts and detects scope creep.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "freelance",
+    "scope-creep",
+    "ai",
+    "automation",
+    "contracts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
