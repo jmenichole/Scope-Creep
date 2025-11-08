@@ -15,7 +15,7 @@ class AlertService {
     const alert = {
       id: `alert_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       projectId,
-      type: 'scope_creep',
+      type: 'scope_awareness',
       severity: this.calculateSeverity(analysis),
       title: this.generateAlertTitle(analysis),
       message: this.generateAlertMessage(analysis),
@@ -27,7 +27,7 @@ class AlertService {
     this.alerts.push(alert);
     
     // In production, send actual notifications (email, SMS, webhook)
-    console.log('🚨 SCOPE CREEP ALERT:', alert.title);
+    console.log('✨ Scope Awareness:', alert.title);
     console.log('   Message:', analysis.message);
     console.log('   Estimated hours:', analysis.estimatedAdditionalHours);
     console.log('   Recommended action:', analysis.recommendedAction);
@@ -40,13 +40,13 @@ class AlertService {
    */
   calculateSeverity(analysis) {
     if (analysis.estimatedAdditionalHours > 10) {
-      return 'critical';
+      return 'needs-attention';
     } else if (analysis.estimatedAdditionalHours > 5) {
-      return 'high';
+      return 'notable';
     } else if (analysis.estimatedAdditionalHours > 2) {
-      return 'medium';
+      return 'gentle-reminder';
     } else {
-      return 'low';
+      return 'awareness';
     }
   }
 
@@ -57,13 +57,13 @@ class AlertService {
     const hours = analysis.estimatedAdditionalHours;
     
     if (hours > 10) {
-      return `🚨 CRITICAL: Major scope change detected (${hours}+ hours)`;
+      return `💫 Significant scope adjustment noticed (${hours}+ hours)`;
     } else if (hours > 5) {
-      return `⚠️ WARNING: Significant scope change detected (${hours} hours)`;
+      return `⚠️ Pending negotiation: Scope adjustment detected (${hours} hours)`;
     } else if (hours > 0) {
-      return `📋 NOTICE: Scope modification detected (${hours} hours)`;
+      return `🌿 Scope shift detected (${hours} hours)`;
     } else {
-      return `ℹ️ INFO: Potential scope creep pattern detected`;
+      return `✨ All within scope — monitoring patterns`;
     }
   }
 
@@ -71,7 +71,7 @@ class AlertService {
    * Generate alert message
    */
   generateAlertMessage(analysis) {
-    let message = `Scope creep detected in project message.\n\n`;
+    let message = `A scope adjustment has been gently detected in the project message.\n\n`;
     message += `Original message: "${analysis.message}"\n\n`;
     message += `Estimated additional work: ${analysis.estimatedAdditionalHours} hours\n`;
     message += `Confidence: ${analysis.confidence}%\n`;
@@ -89,8 +89,8 @@ class AlertService {
       id: `alert_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       projectId,
       type: 'renegotiation_request',
-      severity: 'medium',
-      title: '💰 Renegotiation Required',
+      severity: 'gentle-reminder',
+      title: '🌸 Terms Update Suggested',
       message: this.generateRenegotiationMessage(renegotiation),
       renegotiation,
       createdAt: new Date().toISOString(),
@@ -99,7 +99,7 @@ class AlertService {
     
     this.alerts.push(alert);
     
-    console.log('💰 RENEGOTIATION REQUEST:', renegotiation);
+    console.log('🌸 Terms Update Suggested:', renegotiation);
     
     return alert;
   }
@@ -109,14 +109,14 @@ class AlertService {
    */
   generateRenegotiationMessage(renegotiation) {
     return `
-Client has requested additional work that requires renegotiation:
+Your client has kindly requested additional work that suggests updating the terms:
 
 Additional Work: ${renegotiation.additionalWork}
 Original Budget: $${renegotiation.originalBudget}
-New Quote: $${renegotiation.newQuote}
-Additional Cost: $${renegotiation.additionalCost}
+Updated Proposal: $${renegotiation.newQuote}
+Additional Investment: $${renegotiation.additionalCost}
 
-Please review and approve this renegotiation to continue work.
+Please review and consider this adjustment to continue our collaboration.
     `.trim();
   }
 
@@ -128,16 +128,16 @@ Please review and approve this renegotiation to continue work.
       id: `alert_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       projectId,
       type: 'project_paused',
-      severity: 'critical',
-      title: '🛑 Project Paused',
-      message: `Project has been paused: ${reason}`,
+      severity: 'needs-attention',
+      title: '☁️ Project Paused',
+      message: `Project has entered a mindful pause: ${reason}`,
       createdAt: new Date().toISOString(),
       read: false
     };
     
     this.alerts.push(alert);
     
-    console.log('🛑 PROJECT PAUSED:', reason);
+    console.log('☁️ Project Paused:', reason);
     
     return alert;
   }

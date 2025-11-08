@@ -1,7 +1,7 @@
 {
-  "name": "scope-creep-insurance",
+  "name": "boundari-ai",
   "version": "1.0.0",
-  "description": "Secure your scope. Save your sanity. AI-powered tool that auto-enforces freelance contracts and detects scope creep.",
+  "description": "Nice freelancer. Mean contracts. AI-powered tool that gently enforces freelance agreements with a calm, professional backbone.",
   "main": "src/index.js",
   "type": "module",
   "scripts": {

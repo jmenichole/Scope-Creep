@@ -47,7 +47,7 @@ describe('Scope Creep Detector', () => {
       'Can we just add a few animations? Real quick!'
     );
     
-    assert.ok(result.formalVersion.includes('REQUEST FOR SCOPE MODIFICATION'));
+    assert.ok(result.formalVersion.includes('REQUEST FOR SCOPE ADJUSTMENT'));
     assert.ok(result.billableHours > 0);
   });
 });

@@ -111,7 +111,7 @@ class AgreementManager {
     
     // Auto-pause if too many scope changes
     if (project.scopeChangeCount >= 3) {
-      await this.pauseProject(projectId, 'Excessive scope changes detected');
+      await this.pauseProject(projectId, 'Multiple scope adjustments suggest terms need realignment');
     }
     
     this.projects.set(projectId, project);
