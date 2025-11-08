@@ -1,32 +1,58 @@
-# Scope Creep Insurance
+# Boundari.ai
 
-**Tagline:** "Secure your scope. Save your sanity."
+**Tagline:** "Nice freelancer. Mean contracts."
+
+**Theme:** Calm Productivity App with a Backbone
 
 🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Creep/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
 
 ## What It Is
 
-AI-powered tool that auto-enforces freelance contracts. When a client adds non-agreed tasks, the system flags it, sends alerts, or locks the project until renegotiation.
+AI-powered tool that gently but firmly enforces freelance agreements. When a client adds non-agreed tasks, the system kindly flags it with soothing notifications while maintaining professional boundaries.
+
+## 🎨 Design Philosophy
+
+**Vibe:** Think Headspace meets Contract Law
+
+Animations and friendly fonts with a hidden undertone of professional boundaries. The interface is soothing enough to look like you're agreeing to changes, but you're actually setting legal boundaries in pastel.
+
+**Color Palette:**
+- **Warm Taupe** (#C9B8A8) - Primary background
+- **Soft Mint** (#B8DED1) - Success states
+- **Ivory** (#F8F6F1) - Content background
+- **Moss Green** (#7A9A7E) - Primary actions
+- **Muted Teal** (#88B5B5) - Accents
+- **Dusty Lavender** (#B5A7C4) - Secondary accents
+
+**Status Messages:**
+- ✨ All within scope
+- 🌿 Scope aligned
+- ⚠️ Pending negotiation
+- 💫 Reviewing request
+- 🌸 Terms updated
+- ☁️ Project paused
+
+*No red alerts, just emotional boundaries.*
 
 ## 🎯 Features
 
-### 1. **AI Scope Creep Detection**
-- Automatically detects when clients ask for more than agreed
-- Recognizes patterns like "Can we also just...", "Real quick...", "Shouldn't be hard..."
-- Analyzes message sentiment and passive-aggressive language
-- Estimates additional hours required
+### 1. **AI Scope Awareness**
+- Gently detects when clients ask for more than agreed
+- Recognizes patterns like "Can we also just...", "Real quick...", "While you're at it..."
+- Analyzes message sentiment with calm professionalism
+- Estimates additional hours required with transparency
 
-### 2. **Automated Renegotiation Flow**
-- "Client added 3 hours of work. Here's the new quote."
-- Generates formal renegotiation requests automatically
-- Tracks all scope changes and associated costs
-- Maintains audit trail of modifications
+### 2. **Gentle Renegotiation Flow**
+- "✨ Client requested 3 additional hours. Here's the updated proposal."
+- Generates professional renegotiation requests automatically
+- Tracks all scope adjustments with mindful transparency
+- Maintains complete audit trail of modifications
 
-### 3. **Kill-Switch / Project Pause**
-- Pause work immediately when scope creep detected
-- Lock milestone payments until terms are adjusted
-- Protect your time and sanity
-- Resume only after renegotiation approval
+### 3. **Mindful Pause / Project Breathing Room**
+- Pause work gracefully when scope shifts detected
+- Hold milestone payments until terms are realigned
+- Protect your time with professional boundaries
+- Resume seamlessly after renegotiation approval
 
 ### 4. **Escrow Mode**
 - Milestone-based payment tracking
@@ -34,11 +60,11 @@ AI-powered tool that auto-enforces freelance contracts. When a client adds non-a
 - Release payments only when milestones met
 - Full transparency on payment status
 
-### 5. **Passive-Aggressive Translation (Bonus)**
-- Takes client scope creep messages
-- Auto-rewrites them in legally binding English
-- Converts casual requests to formal contract amendments
-- Example: "Can we just add..." → "REQUEST FOR SCOPE MODIFICATION: I request..."
+### 5. **Professional Translation (Bonus)**
+- Takes client scope shift messages
+- Kindly rewrites them in professionally binding language
+- Converts casual requests to formal contract adjustments
+- Example: "Can we just add..." → "REQUEST FOR SCOPE ADJUSTMENT: I kindly request..."
 
 ## 🚀 Quick Start
 
@@ -96,7 +122,7 @@ Content-Type: application/json
   "isScopeCreep": true,
   "confidence": 85,
   "estimatedAdditionalHours": 3,
-  "flags": ["🚨 SCOPE_CREEP_DETECTED", "📝 MINOR_ADDITIONAL_WORK"],
+  "flags": ["✨ SCOPE_AWARENESS", "📝 MINOR_ADDITIONAL_WORK"],
   "recommendedAction": "SEND_RENEGOTIATION_REQUEST"
 }
 ```
@@ -115,18 +141,18 @@ Content-Type: application/json
 ```json
 {
   "original": "Can we just add a few animations? Real quick, while you're at it!",
-  "translated": "REQUEST FOR SCOPE MODIFICATION:\n\nI would like to request add a few animations? an additional task, Additionally, I request!\n\nThis request constitutes a change to the original scope of work and may require adjustment to timeline and compensation.",
+  "translated": "REQUEST FOR SCOPE ADJUSTMENT:\n\nI would like to request add a few animations? an additional task, Additionally, I request!\n\nThis request represents a change to the original scope of work and may require adjustment to timeline and compensation.",
   "billableHours": 4
 }
 ```
 
-### Pause Project (Kill-Switch)
+### Pause Project (Mindful Pause)
 ```http
 POST /api/projects/{projectId}/pause
 Content-Type: application/json
 
 {
-  "reason": "Client making excessive scope change requests"
+  "reason": "Client requesting scope adjustments beyond original agreement"
 }
 ```
 
@@ -187,29 +213,29 @@ The AI analyzes client messages using pattern matching and keyword analysis:
 ```
 Client: "Hey can we just add a few animations? Real quick!"
    ↓
-AI Detects: Scope creep (85% confidence), 4 additional hours
+AI Detects: Scope shift (85% confidence), 4 additional hours
    ↓
-System Action: Send alert to freelancer
+System Action: Send gentle notification to freelancer
    ↓
-Freelancer: Reviews, clicks "Pause & Renegotiate"
+Freelancer: Reviews, selects "Pause & Renegotiate"
    ↓
-System: Pauses project, locks milestone payments
+System: Gracefully pauses project, holds milestone payments
    ↓
-Auto-generated: "Client requested animation work (+4 hours). New quote: $5,750"
+Auto-generated: "✨ Client requested animation work (+4 hours). Updated proposal: $5,750"
    ↓
 Client: Reviews and approves
    ↓
-System: Resumes project, updates budget, unlocks payments
+System: Resumes project, updates budget, releases payments
 ```
 
 ## 🔒 Key Benefits
 
-✅ **Save Time**: No more arguing about scope changes  
-✅ **Get Paid Fairly**: Automatic quotes for additional work  
-✅ **Protect Your Sanity**: Kill-switch when clients get unreasonable  
-✅ **Professional**: Converts casual requests to formal amendments  
-✅ **Transparent**: Complete audit trail of all changes  
-✅ **Automated**: Works 24/7, even while you sleep  
+✅ **Save Time**: No more difficult conversations about scope changes  
+✅ **Get Paid Fairly**: Gentle but firm quotes for additional work  
+✅ **Protect Your Boundaries**: Mindful pause when clients need realignment  
+✅ **Stay Professional**: Converts casual requests to formal adjustments  
+✅ **Full Transparency**: Complete audit trail of all changes  
+✅ **Automated Peace**: Works 24/7, maintaining your boundaries while you rest  
 
 ## 📊 Tech Stack
 
@@ -263,8 +289,8 @@ Contributions welcome! This is a SaaS application, not a blockchain project.
 
 ## ⚠️ Disclaimer
 
-This tool helps detect and manage scope creep but doesn't replace professional legal advice or formal contracts. Always use proper written agreements for freelance work.
+This tool helps maintain professional boundaries and manage scope changes with grace, but doesn't replace professional legal advice or formal contracts. Always use proper written agreements for freelance work.
 
 ---
 
-**Built for freelancers, by someone who's been there. 🙌**
+**Built for freelancers who believe in being kind but firm. 🌿**

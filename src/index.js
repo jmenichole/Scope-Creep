@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'Scope Creep Insurance' });
+  res.json({ status: 'ok', service: 'Boundari.ai' });
 });
 
 // Create a new project/agreement
@@ -95,7 +95,7 @@ app.post('/api/translate-message', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Scope Creep Insurance API running on port ${PORT}`);
+  console.log(`✨ Boundari.ai API running on port ${PORT}`);
   console.log(`📍 Health check: http://localhost:${PORT}/health`);
 });
 

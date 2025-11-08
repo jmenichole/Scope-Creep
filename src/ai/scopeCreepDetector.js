@@ -136,17 +136,17 @@ class ScopeCreepDetector {
     const flags = [];
     
     if (isScopeCreep) {
-      flags.push('🚨 SCOPE_CREEP_DETECTED');
+      flags.push('✨ SCOPE_AWARENESS');
     }
     
     if (isPassiveAggressive) {
-      flags.push('⚠️ PASSIVE_AGGRESSIVE_TONE');
+      flags.push('⚠️ TONE_NOTED');
     }
     
     if (hours > 10) {
-      flags.push('⏰ SIGNIFICANT_ADDITIONAL_WORK');
+      flags.push('💫 SIGNIFICANT_ADDITIONAL_WORK');
     } else if (hours > 5) {
-      flags.push('⏱️ MODERATE_ADDITIONAL_WORK');
+      flags.push('🌿 MODERATE_ADDITIONAL_WORK');
     } else if (hours > 0) {
       flags.push('📝 MINOR_ADDITIONAL_WORK');
     }
@@ -186,7 +186,7 @@ class ScopeCreepDetector {
       "quick fix": "amendment",
       "while you're at it": "Additionally, I request",
       "just takes five minutes": "requires additional work estimated at",
-      "i thought this would": "I request that",
+      "i thought this would": "I kindly request that",
       "obviously": "Respectfully,",
       "surely": "I believe",
       "forgot to mention": "I am now requesting",
@@ -201,9 +201,9 @@ class ScopeCreepDetector {
     
     // Add formal structure
     return {
-      formalVersion: `REQUEST FOR SCOPE MODIFICATION:\n\n${translated}\n\nThis request constitutes a change to the original scope of work and may require adjustment to timeline and compensation.`,
+      formalVersion: `REQUEST FOR SCOPE ADJUSTMENT:\n\n${translated}\n\nThis request represents a change to the original scope of work and may require adjustment to timeline and compensation.`,
       casualVersion: message,
-      analysis: "Message contains language that suggests scope modification. Translated to formal contract language.",
+      analysis: "Message contains language that suggests scope adjustment. Translated to professional contract language.",
       billableHours: this.estimateAdditionalWork(message)
     };
   }
