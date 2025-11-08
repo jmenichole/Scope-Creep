@@ -1,15 +1,42 @@
 # Scope Creep Insurance
 
-Smart contract tool that locks down freelance agreements with anti-scope-creep enforcement. If the client starts to add more nonsense to the job, the system alerts, charges more, or even fires the client.
+**Tagline:** "Secure your scope. Save your sanity."
+
+## What It Is
+
+AI-powered tool that auto-enforces freelance contracts. When a client adds non-agreed tasks, the system flags it, sends alerts, or locks the project until renegotiation.
 
 ## 🎯 Features
 
-- **Escrow-Based Payments**: Secure fund management with smart contract escrow
-- **Automatic Scope Change Detection**: Tracks and charges for scope modifications
-- **Progressive Penalties**: 20% additional charge per scope change
-- **Three-Strike System**: Automatically fires clients after 3 scope changes
-- **Alert System**: Warns clients before reaching the firing threshold
-- **Revenue Model**: 2.5% platform fee on all completed agreements
+### 1. **AI Scope Creep Detection**
+- Automatically detects when clients ask for more than agreed
+- Recognizes patterns like "Can we also just...", "Real quick...", "Shouldn't be hard..."
+- Analyzes message sentiment and passive-aggressive language
+- Estimates additional hours required
+
+### 2. **Automated Renegotiation Flow**
+- "Client added 3 hours of work. Here's the new quote."
+- Generates formal renegotiation requests automatically
+- Tracks all scope changes and associated costs
+- Maintains audit trail of modifications
+
+### 3. **Kill-Switch / Project Pause**
+- Pause work immediately when scope creep detected
+- Lock milestone payments until terms are adjusted
+- Protect your time and sanity
+- Resume only after renegotiation approval
+
+### 4. **Escrow Mode**
+- Milestone-based payment tracking
+- Freeze payouts if terms aren't respected
+- Release payments only when milestones met
+- Full transparency on payment status
+
+### 5. **Passive-Aggressive Translation (Bonus)**
+- Takes client scope creep messages
+- Auto-rewrites them in legally binding English
+- Converts casual requests to formal contract amendments
+- Example: "Can we just add..." → "REQUEST FOR SCOPE MODIFICATION: I request..."
 
 ## 🚀 Quick Start
 
@@ -19,120 +46,186 @@ Smart contract tool that locks down freelance agreements with anti-scope-creep e
 npm install
 ```
 
-### Compile Contracts
+### Start the Server
 
 ```bash
-npm run compile
+npm start
 ```
 
-### Run Tests
+The API will be available at `http://localhost:3000`
+
+### Development Mode
 
 ```bash
-npm test
+npm run dev
 ```
 
-### Deploy
+## 📡 API Endpoints
 
-```bash
-npx hardhat run scripts/deploy.js --network <network-name>
+### Create Project
+```http
+POST /api/projects
+Content-Type: application/json
+
+{
+  "clientId": "client123",
+  "freelancerId": "freelancer456",
+  "scope": "Build a landing page with 5 sections",
+  "budget": 5000,
+  "milestones": []
+}
 ```
 
-## 📖 How It Works
+### Analyze Message for Scope Creep
+```http
+POST /api/analyze-message
+Content-Type: application/json
 
-### For Freelancers
+{
+  "projectId": "proj_123",
+  "message": "Hey can we also just add a quick contact form? Real quick, shouldn't be hard!",
+  "sender": "client"
+}
+```
 
-1. Create an agreement with client address, amount, and scope
-2. Client deposits funds into escrow
-3. Work on the project
-4. Monitor scope change requests (optional)
-5. Complete the agreement or fire the client if needed
-6. Receive payment automatically (97.5% after platform fee)
+**Response:**
+```json
+{
+  "isScopeCreep": true,
+  "confidence": 85,
+  "estimatedAdditionalHours": 3,
+  "flags": ["🚨 SCOPE_CREEP_DETECTED", "📝 MINOR_ADDITIONAL_WORK"],
+  "recommendedAction": "SEND_RENEGOTIATION_REQUEST"
+}
+```
 
-### For Clients
+### Translate Message to Legal English
+```http
+POST /api/translate-message
+Content-Type: application/json
 
-1. Review and accept the agreement
-2. Deposit project funds into escrow
-3. Request scope changes if needed (⚠️ costs 20% each)
-4. Be mindful: 3 scope changes = automatic firing
-5. Complete the agreement when satisfied
+{
+  "message": "Can we just add a few animations? Real quick, while you're at it!"
+}
+```
 
-### Anti-Scope-Creep Protection
+**Response:**
+```json
+{
+  "original": "Can we just add a few animations? Real quick, while you're at it!",
+  "translated": "REQUEST FOR SCOPE MODIFICATION:\n\nI would like to request add a few animations? an additional task, Additionally, I request!\n\nThis request constitutes a change to the original scope of work and may require adjustment to timeline and compensation.",
+  "billableHours": 4
+}
+```
 
-- **1st scope change**: +20% charge, alert sent
-- **2nd scope change**: +20% charge, warning sent
-- **3rd scope change**: +20% charge, **client is automatically fired**
-- Freelancer gets paid in full including all scope change fees (minus 2.5% platform fee)
+### Pause Project (Kill-Switch)
+```http
+POST /api/projects/{projectId}/pause
+Content-Type: application/json
 
-## 💰 Economic Model
+{
+  "reason": "Client making excessive scope change requests"
+}
+```
 
-### Platform Revenue
-- 2.5% fee on all completed agreements
-- No subscription costs for users
-- Revenue scales with usage
+### Create Renegotiation
+```http
+POST /api/projects/{projectId}/renegotiate
+Content-Type: application/json
 
-### Example Calculation
+{
+  "additionalWork": "Add contact form with email integration",
+  "newQuote": 5750
+}
+```
 
-Original project: 1 ETH
-- Client makes 2 scope changes: +0.4 ETH
-- Total: 1.4 ETH
-- Platform fee: 0.035 ETH (2.5%)
-- Freelancer receives: 1.365 ETH
+## 💰 Monetization
 
-## 📊 Contract Details
+### 1. **Monthly Subscription**
+- Basic: $29/month (10 projects)
+- Pro: $79/month (unlimited projects, priority support)
+- Enterprise: Custom pricing (API access, white-label)
 
-- **Platform Fee**: 2.5%
-- **Scope Change Fee**: 20% of original amount
-- **Max Scope Changes**: 3 (then automatic firing)
-- **Solidity Version**: 0.8.20
+### 2. **Per-Project Percentage**
+- Take 2-3% of project value
+- Only charged on completed projects
+- No subscription required
 
-## 🛠️ Tech Stack
+### 3. **Marketplace Add-on**
+- Integrate with Upwork, Fiverr, Freelancer.com
+- Sell as premium feature
+- Revenue share with platforms
 
-- Solidity ^0.8.20
-- Hardhat
-- Ethers.js
-- Mocha & Chai (testing)
+## 🎯 Target Users
 
-## 📚 Documentation
-
-For detailed documentation, see [DOCUMENTATION.md](./DOCUMENTATION.md)
-
-Topics covered:
-- Complete usage guide for freelancers, clients, and platform owners
-- Contract architecture
-- All functions and events
-- Security considerations
-- Example scenarios
-- Deployment guide
-
-## 🧪 Testing
-
-The project includes a comprehensive test suite covering:
-- Agreement creation and validation
-- Fund deposits
-- Scope change mechanisms
-- Alert system
-- Client firing (automatic and manual)
-- Payment distribution
-- Fee collection
-
-## 🎯 Target Market
-
-**Niche**: Freelancers who've had enough of endless scope creep
+**Everyone who's heard "this'll just take five minutes" and aged 12 years.**
 
 Perfect for:
-- Web developers
-- Graphic designers
-- Content writers
-- Consultants
-- Any freelancer dealing with demanding clients
+- 👨‍💻 Web developers
+- 🎨 Graphic designers  
+- ✍️ Content writers
+- 📊 Consultants
+- 🎥 Video editors
+- 📸 Photographers
+- 💼 Any freelancer dealing with scope creep
 
-## 🔒 Security
+## 🧠 How It Works
 
-- Access control on all sensitive functions
-- Reentrancy protection
-- Input validation
-- Solidity 0.8+ overflow protection
-- Comprehensive test coverage
+### Scope Creep Detection
+
+The AI analyzes client messages using pattern matching and keyword analysis:
+
+1. **Pattern Recognition**: Detects phrases like "can we just", "real quick", "while you're at it"
+2. **Work Estimation**: Calculates additional hours based on mentioned features
+3. **Confidence Scoring**: Assigns confidence level (0-100%) to detection
+4. **Action Recommendation**: Suggests next steps (alert, pause, renegotiate)
+
+### Example Flow
+
+```
+Client: "Hey can we just add a few animations? Real quick!"
+   ↓
+AI Detects: Scope creep (85% confidence), 4 additional hours
+   ↓
+System Action: Send alert to freelancer
+   ↓
+Freelancer: Reviews, clicks "Pause & Renegotiate"
+   ↓
+System: Pauses project, locks milestone payments
+   ↓
+Auto-generated: "Client requested animation work (+4 hours). New quote: $5,750"
+   ↓
+Client: Reviews and approves
+   ↓
+System: Resumes project, updates budget, unlocks payments
+```
+
+## 🔒 Key Benefits
+
+✅ **Save Time**: No more arguing about scope changes  
+✅ **Get Paid Fairly**: Automatic quotes for additional work  
+✅ **Protect Your Sanity**: Kill-switch when clients get unreasonable  
+✅ **Professional**: Converts casual requests to formal amendments  
+✅ **Transparent**: Complete audit trail of all changes  
+✅ **Automated**: Works 24/7, even while you sleep  
+
+## 📊 Tech Stack
+
+- **Backend**: Node.js + Express
+- **AI/ML**: Pattern matching and NLP-inspired detection
+- **Storage**: In-memory (can be extended to PostgreSQL/MongoDB)
+- **API**: RESTful JSON API
+
+## 🛣️ Roadmap
+
+- [ ] Database integration (PostgreSQL)
+- [ ] Real email/SMS notifications
+- [ ] Stripe integration for payments
+- [ ] Browser extension for Gmail/Slack
+- [ ] Machine learning model training
+- [ ] Mobile app (iOS/Android)
+- [ ] Marketplace integrations
+- [ ] Multi-language support
 
 ## 📝 License
 
@@ -140,9 +233,12 @@ MIT
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+Contributions welcome! This is a SaaS application, not a blockchain project.
 
 ## ⚠️ Disclaimer
 
-This is a smart contract for managing freelance agreements. Use at your own risk. Always test thoroughly on testnets before mainnet deployment.
+This tool helps detect and manage scope creep but doesn't replace professional legal advice or formal contracts. Always use proper written agreements for freelance work.
 
+---
+
+**Built for freelancers, by someone who's been there. 🙌**

@@ -1,26 +1,24 @@
 {
-  "name": "scope-creep",
+  "name": "scope-creep-insurance",
   "version": "1.0.0",
-  "description": "Smart contract tool that locks down freelance agreements with anti-scope-creep enforcement. If the client starts to add more nonsense to the job, the system alerts, charges more, or even fires the client.",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "Secure your scope. Save your sanity. AI-powered tool that auto-enforces freelance contracts and detects scope creep.",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "hardhat test",
-    "compile": "node compile.js",
-    "deploy": "hardhat run scripts/deploy.js",
-    "example": "hardhat run scripts/example-usage.js --network localhost",
-    "node": "hardhat node"
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test tests/*.test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "freelance",
+    "scope-creep",
+    "ai",
+    "automation",
+    "contracts"
+  ],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-ethers": "^3.1.2",
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
-    "ethers": "^6.15.0",
-    "hardhat": "^2.27.0",
-    "solc": "^0.8.20"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
