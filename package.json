@@ -8,7 +8,10 @@
   },
   "scripts": {
     "test": "hardhat test",
-    "compile": "node compile.js"
+    "compile": "node compile.js",
+    "deploy": "hardhat run scripts/deploy.js",
+    "example": "hardhat run scripts/example-usage.js --network localhost",
+    "node": "hardhat node"
   },
   "keywords": [],
   "author": "",
