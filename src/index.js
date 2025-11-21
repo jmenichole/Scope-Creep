@@ -32,6 +32,17 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Enable CORS for development
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'Boundari.ai' });
@@ -41,6 +52,11 @@ app.get('/health', (req, res) => {
 app.post('/api/projects', async (req, res) => {
   try {
     const { clientId, freelancerId, scope, budget, milestones } = req.body;
+    
+    if (!clientId || !freelancerId || !scope || budget === undefined) {
+      return res.status(400).json({ error: 'Missing required fields: clientId, freelancerId, scope, budget' });
+    }
+    
     const project = await agreementManager.createProject({
       clientId,
       freelancerId,
@@ -50,6 +66,7 @@ app.post('/api/projects', async (req, res) => {
     });
     res.status(201).json(project);
   } catch (error) {
+    console.error('Error creating project:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -58,6 +75,11 @@ app.post('/api/projects', async (req, res) => {
 app.post('/api/analyze-message', async (req, res) => {
   try {
     const { projectId, message, sender } = req.body;
+    
+    if (!projectId || !message || !sender) {
+      return res.status(400).json({ error: 'Missing required fields: projectId, message, sender' });
+    }
+    
     const analysis = await scopeCreepDetector.analyzeMessage(projectId, message, sender);
     
     if (analysis.isScopeCreep) {
@@ -67,6 +89,7 @@ app.post('/api/analyze-message', async (req, res) => {
     
     res.json(analysis);
   } catch (error) {
+    console.error('Error analyzing message:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -113,6 +136,70 @@ app.post('/api/translate-message', async (req, res) => {
     const { message } = req.body;
     const translated = await scopeCreepDetector.translateToLegalEnglish(message);
     res.json({ original: message, translated });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// List all projects
+app.get('/api/projects', async (req, res) => {
+  try {
+    const projects = await agreementManager.listProjects();
+    res.json(projects);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Get project statistics
+app.get('/api/projects/:projectId/stats', async (req, res) => {
+  try {
+    const stats = await agreementManager.getProjectStats(req.params.projectId);
+    res.json(stats);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
+// Resume a paused project
+app.put('/api/projects/:projectId/resume', async (req, res) => {
+  try {
+    const project = await agreementManager.resumeProject(req.params.projectId);
+    res.json(project);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Approve a renegotiation
+app.post('/api/renegotiations/:renegotiationId/approve', async (req, res) => {
+  try {
+    const result = await agreementManager.approveRenegotiation(req.params.renegotiationId);
+    res.json(result);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
+// Get alerts for a project
+app.get('/api/alerts/:projectId', async (req, res) => {
+  try {
+    const unreadOnly = req.query.unreadOnly === 'true';
+    const alerts = alertService.getAlerts(req.params.projectId, unreadOnly);
+    res.json(alerts);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Mark alert as read
+app.put('/api/alerts/:alertId/read', async (req, res) => {
+  try {
+    const alert = alertService.markAsRead(req.params.alertId);
+    if (!alert) {
+      return res.status(404).json({ error: 'Alert not found' });
+    }
+    res.json(alert);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

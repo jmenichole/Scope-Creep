@@ -71,6 +71,13 @@ class AgreementManager {
   }
 
   /**
+   * List all projects
+   */
+  async listProjects() {
+    return Array.from(this.projects.values());
+  }
+
+  /**
    * Pause project (kill-switch)
    */
   async pauseProject(projectId, reason) {
