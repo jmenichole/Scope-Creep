@@ -1,6 +1,6 @@
-# Scope Creep Insurance - Landing Page
+# Scope Check Insurance - Landing Page
 
-This directory contains the GitHub Pages website for Scope Creep Insurance.
+This directory contains the GitHub Pages website for Scope Check Insurance.
 
 ## 🌐 Live Site
 

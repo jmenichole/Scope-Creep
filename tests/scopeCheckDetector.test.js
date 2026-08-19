@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,40 +24,40 @@
 
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { scopeCreepDetector } from '../src/ai/scopeCreepDetector.js';
+import { scopeCheckDetector } from '../src/ai/scopeCheckDetector.js';
 
-describe('Scope Creep Detector', () => {
-  it('should detect scope creep patterns', async () => {
-    const result = await scopeCreepDetector.analyzeMessage(
+describe('Scope Check Detector', () => {
+  it('should detect scope check patterns', async () => {
+    const result = await scopeCheckDetector.analyzeMessage(
       'proj_123',
       'Hey can we just add a quick contact form? Real quick!',
       'client'
     );
     
-    assert.strictEqual(result.isScopeCreep, true);
+    assert.strictEqual(result.isScopeCheck, true);
     assert.ok(result.confidence > 50);
     assert.ok(result.estimatedAdditionalHours > 0);
   });
 
   it('should not flag normal messages', async () => {
-    const result = await scopeCreepDetector.analyzeMessage(
+    const result = await scopeCheckDetector.analyzeMessage(
       'proj_123',
       'The project looks great! Thanks for the update.',
       'client'
     );
     
-    assert.strictEqual(result.isScopeCreep, false);
+    assert.strictEqual(result.isScopeCheck, false);
   });
 
   it('should estimate work hours correctly', () => {
     const message = 'Can you add a new page with forms and mobile responsive design?';
-    const hours = scopeCreepDetector.estimateAdditionalWork(message);
+    const hours = scopeCheckDetector.estimateAdditionalWork(message);
     
     assert.ok(hours > 10); // Should detect 'page', 'form', 'mobile', 'responsive'
   });
 
   it('should detect passive-aggressive language', async () => {
-    const result = await scopeCreepDetector.analyzeMessage(
+    const result = await scopeCheckDetector.analyzeMessage(
       'proj_123',
       'I thought this would be included already. Obviously everyone else does it.',
       'client'
@@ -67,7 +67,7 @@ describe('Scope Creep Detector', () => {
   });
 
   it('should translate casual to legal English', async () => {
-    const result = await scopeCreepDetector.translateToLegalEnglish(
+    const result = await scopeCheckDetector.translateToLegalEnglish(
       'Can we just add a few animations? Real quick!'
     );
     

@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

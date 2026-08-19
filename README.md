@@ -104,7 +104,7 @@ Content-Type: application/json
 }
 ```
 
-### Analyze Message for Scope Creep
+### Analyze Message for Scope Check
 ```http
 POST /api/analyze-message
 Content-Type: application/json
@@ -119,7 +119,7 @@ Content-Type: application/json
 **Response:**
 ```json
 {
-  "isScopeCreep": true,
+  "isScopeCheck": true,
   "confidence": 85,
   "estimatedAdditionalHours": 3,
   "flags": ["✨ SCOPE_AWARENESS", "📝 MINOR_ADDITIONAL_WORK"],
@@ -195,11 +195,11 @@ Perfect for:
 - 📊 Consultants
 - 🎥 Video editors
 - 📸 Photographers
-- 💼 Any freelancer dealing with scope creep
+- 💼 Any freelancer dealing with scope check
 
 ## 🧠 How It Works
 
-### Scope Creep Detection
+### Scope Check Detection
 
 The AI analyzes client messages using pattern matching and keyword analysis:
 

@@ -40,8 +40,8 @@ This project has been **completely reimplemented** from a blockchain smart contr
 - Traditional payment processing (Stripe, etc.)
 
 ✅ **Features:**
-- AI-powered scope creep detection
-- Pattern matching for 15+ scope creep phrases
+- AI-powered scope check detection
+- Pattern matching for 15+ scope check phrases
 - Automated renegotiation flow generation
 - Kill-switch/pause functionality
 - Passive-aggressive message translator
@@ -67,14 +67,14 @@ This project has been **completely reimplemented** from a blockchain smart contr
 ```
 src/
 ├── ai/
-│   └── scopeCreepDetector.js    # AI detection engine
+│   └── scopeCheckDetector.js    # AI detection engine
 ├── services/
 │   ├── agreementManager.js       # Project management
 │   └── alertService.js           # Alert system
 └── index.js                      # Express API server
 
 tests/
-├── scopeCreepDetector.test.js   # AI tests
+├── scopeCheckDetector.test.js   # AI tests
 └── agreementManager.test.js     # Service tests
 
 EXAMPLES.md                       # Usage examples
@@ -84,10 +84,10 @@ EXAMPLES.md                       # Usage examples
 
 ```
 contracts/
-└── ScopeCreepInsurance.sol      # Solidity smart contract
+└── ScopeCheckInsurance.sol      # Solidity smart contract
 
 test/
-└── ScopeCreepInsurance.test.js  # Smart contract tests
+└── ScopeCheckInsurance.test.js  # Smart contract tests
 
 scripts/
 ├── deploy.js                     # Blockchain deployment
@@ -109,7 +109,7 @@ CONTRIBUTING.md                   # Blockchain guidelines
 **Before:** Manual tracking, no automatic detection
 
 **After:** 
-- Automatically detects scope creep in messages
+- Automatically detects scope check in messages
 - 15+ pattern recognition rules
 - Work hour estimation (e.g., "add a page" = 4 hours)
 - Confidence scoring (0-100%)
@@ -218,4 +218,4 @@ npm start
 
 This is now a **traditional SaaS application** with AI-powered features, not a blockchain project. All cryptocurrency and smart contract functionality has been removed and replaced with standard web application architecture.
 
-The core value proposition remains the same (protect freelancers from scope creep), but the implementation is now accessible to all freelancers without requiring cryptocurrency knowledge or usage.
+The core value proposition remains the same (protect freelancers from scope check), but the implementation is now accessible to all freelancers without requiring cryptocurrency knowledge or usage.

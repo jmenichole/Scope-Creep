@@ -436,8 +436,8 @@ async function analyzeMessage() {
 function displayAnalysisResult(analysis) {
     const resultDiv = document.getElementById('analysis-result');
     
-    const icon = analysis.isScopeCreep ? '🚨' : '✅';
-    const title = analysis.isScopeCreep ? 'Scope Creep Detected!' : 'All Clear';
+    const icon = analysis.isScopeCheck ? '🚨' : '✅';
+    const title = analysis.isScopeCheck ? 'Scope Check Detected!' : 'All Clear';
     
     resultDiv.innerHTML = `
         <div class="result-header">
@@ -449,7 +449,7 @@ function displayAnalysisResult(analysis) {
         </div>
         
         <div class="result-badges">
-            ${analysis.isScopeCreep ? '<span class="result-badge badge-danger">Scope Creep</span>' : '<span class="result-badge badge-success">Within Scope</span>'}
+            ${analysis.isScopeCheck ? '<span class="result-badge badge-danger">Scope Check</span>' : '<span class="result-badge badge-success">Within Scope</span>'}
             <span class="result-badge badge-warning">${analysis.confidence}% Confidence</span>
             <span class="result-badge badge-info">+${analysis.estimatedAdditionalHours} Hours</span>
         </div>
@@ -550,7 +550,7 @@ async function loadAlerts() {
         <div class="empty-state">
             <div class="empty-state-icon">🔔</div>
             <h3>No alerts yet</h3>
-            <p>Alerts will appear here when scope creep is detected</p>
+            <p>Alerts will appear here when scope check is detected</p>
         </div>
     `;
 }

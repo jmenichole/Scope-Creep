@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
  */
 
 import express from 'express';
-import { scopeCreepDetector } from './ai/scopeCreepDetector.js';
+import { scopeCheckDetector } from './ai/scopeCheckDetector.js';
 import { agreementManager } from './services/agreementManager.js';
 import { alertService } from './services/alertService.js';
 
@@ -71,7 +71,7 @@ app.post('/api/projects', async (req, res) => {
   }
 });
 
-// Analyze message for scope creep
+// Analyze message for scope check
 app.post('/api/analyze-message', async (req, res) => {
   try {
     const { projectId, message, sender } = req.body;
@@ -80,11 +80,11 @@ app.post('/api/analyze-message', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields: projectId, message, sender' });
     }
     
-    const analysis = await scopeCreepDetector.analyzeMessage(projectId, message, sender);
+    const analysis = await scopeCheckDetector.analyzeMessage(projectId, message, sender);
     
-    if (analysis.isScopeCreep) {
+    if (analysis.isScopeCheck) {
       // Send alert and trigger renegotiation flow
-      await alertService.sendScopeCreepAlert(projectId, analysis);
+      await alertService.sendScopeCheckAlert(projectId, analysis);
     }
     
     res.json(analysis);
@@ -134,7 +134,7 @@ app.post('/api/projects/:projectId/renegotiate', async (req, res) => {
 app.post('/api/translate-message', async (req, res) => {
   try {
     const { message } = req.body;
-    const translated = await scopeCreepDetector.translateToLegalEnglish(message);
+    const translated = await scopeCheckDetector.translateToLegalEnglish(message);
     res.json({ original: message, translated });
   } catch (error) {
     res.status(400).json({ error: error.message });

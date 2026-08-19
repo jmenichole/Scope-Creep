@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 
 /**
  * Alert Service
- * Sends alerts and notifications for scope creep detection
+ * Sends alerts and notifications for scope check detection
  */
 
 class AlertService {
@@ -33,9 +33,9 @@ class AlertService {
   }
 
   /**
-   * Send scope creep alert
+   * Send scope check alert
    */
-  async sendScopeCreepAlert(projectId, analysis) {
+  async sendScopeCheckAlert(projectId, analysis) {
     const alert = {
       id: `alert_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       projectId,
