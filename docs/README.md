@@ -4,7 +4,7 @@ This directory contains the GitHub Pages website for Scope Check Insurance.
 
 ## 🌐 Live Site
 
-Visit the live website at: **[https://jmenichole.github.io/Scope-Creep/](https://jmenichole.github.io/Scope-Creep/)**
+Visit the live website at: **[https://jmenichole.github.io/Scope-Check/](https://jmenichole.github.io/Scope-Check/)**
 
 ## 📁 Files
 

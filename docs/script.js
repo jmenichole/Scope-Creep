@@ -292,4 +292,4 @@ window.addEventListener('load', () => {
 // Console message for developers
 console.log('%c🛡️ Scope Check Insurance', 'font-size: 24px; font-weight: bold; color: #4f46e5;');
 console.log('%cLooking under the hood? We like your style!', 'font-size: 14px; color: #6b7280;');
-console.log('%cCheck out our API: https://github.com/jmenichole/Scope-Creep', 'font-size: 12px; color: #10b981;');
+console.log('%cCheck out our API: https://github.com/jmenichole/Scope-Check', 'font-size: 12px; color: #10b981;');

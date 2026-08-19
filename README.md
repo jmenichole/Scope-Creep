@@ -4,7 +4,7 @@
 
 **Theme:** Calm Productivity App with a Backbone
 
-🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Creep/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
+🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Check/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
 
 ## What It Is
 
@@ -257,7 +257,7 @@ System: Resumes project, updates budget, releases payments
 
 ## 🌐 GitHub Pages Website
 
-A professional landing page is available at: **[https://jmenichole.github.io/Scope-Creep/](https://jmenichole.github.io/Scope-Creep/)**
+A professional landing page is available at: **[https://jmenichole.github.io/Scope-Check/](https://jmenichole.github.io/Scope-Check/)**
 
 The website showcases:
 - 🎯 Product features and benefits
