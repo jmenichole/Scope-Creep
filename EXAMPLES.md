@@ -1,9 +1,9 @@
-# Scope Creep Insurance - Examples
+# Scope Check Insurance - Examples
 
-## Example 1: Basic Scope Creep Detection
+## Example 1: Basic Scope Check Detection
 
 ### Scenario
-Client sends a message that contains scope creep language.
+Client sends a message that contains scope check language.
 
 ### API Request
 ```bash
@@ -22,7 +22,7 @@ curl -X POST http://localhost:3000/api/analyze-message \
   "projectId": "proj_123",
   "message": "Hey can we also just add a quick contact form? Real quick, shouldn't be hard!",
   "sender": "client",
-  "isScopeCreep": true,
+  "isScopeCheck": true,
   "isPassiveAggressive": false,
   "confidence": 80,
   "matchedPatterns": [
@@ -32,7 +32,7 @@ curl -X POST http://localhost:3000/api/analyze-message \
   ],
   "estimatedAdditionalHours": 3,
   "flags": [
-    "🚨 SCOPE_CREEP_DETECTED",
+    "🚨 SCOPE_CHECK_DETECTED",
     "📝 MINOR_ADDITIONAL_WORK"
   ],
   "recommendedAction": "SEND_RENEGOTIATION_REQUEST"
@@ -96,7 +96,7 @@ curl -X POST http://localhost:3000/api/analyze-message \
 ```
 
 **AI Detection Result:**
-- Scope creep detected: YES
+- Scope check detected: YES
 - Estimated hours: 10+ (blog requires significant work)
 - Recommended action: PAUSE_AND_RENEGOTIATE
 
@@ -172,7 +172,7 @@ curl -X POST http://localhost:3000/api/projects/proj_123/renegotiate \
 
 **System Action:** Project automatically paused due to excessive scope changes.
 
-## Example 5: Scope Creep Phrases Detected
+## Example 5: Scope Check Phrases Detected
 
 ### Common Phrases That Trigger Detection
 
@@ -211,7 +211,7 @@ curl http://localhost:3000/api/projects/proj_123/stats
 ### Health Score Breakdown
 - 100: Perfect, no scope changes
 - 85-99: Minor adjustments, healthy project
-- 70-84: Some scope creep, monitor closely
+- 70-84: Some scope check, monitor closely
 - 50-69: Multiple scope changes, at risk
 - 0-49: Critical, consider pausing or renegotiating
 
@@ -230,20 +230,20 @@ npm test
 ## Integration Examples
 
 ### Slack Bot Integration
-Monitor Slack messages for scope creep:
+Monitor Slack messages for scope check:
 
 ```javascript
-import { scopeCreepDetector } from './ai/scopeCreepDetector.js';
+import { scopeCheckDetector } from './ai/scopeCheckDetector.js';
 
 slackBot.on('message', async (msg) => {
   if (msg.user === clientId) {
-    const analysis = await scopeCreepDetector.analyzeMessage(
+    const analysis = await scopeCheckDetector.analyzeMessage(
       projectId,
       msg.text,
       'client'
     );
     
-    if (analysis.isScopeCreep) {
+    if (analysis.isScopeCheck) {
       await slackBot.sendAlert(freelancerId, analysis);
     }
   }
@@ -251,14 +251,14 @@ slackBot.on('message', async (msg) => {
 ```
 
 ### Email Parser Integration
-Parse client emails for scope creep:
+Parse client emails for scope check:
 
 ```javascript
-import { scopeCreepDetector } from './ai/scopeCreepDetector.js';
+import { scopeCheckDetector } from './ai/scopeCheckDetector.js';
 
 emailParser.on('email', async (email) => {
   if (email.from === clientEmail) {
-    const analysis = await scopeCreepDetector.analyzeMessage(
+    const analysis = await scopeCheckDetector.analyzeMessage(
       projectId,
       email.body,
       'client'
@@ -276,6 +276,6 @@ emailParser.on('email', async (email) => {
 
 1. **Set Up Auto-Monitoring**: Connect to your communication channels
 2. **Define Clear Scope**: The AI works best with well-defined project scope
-3. **Act on Alerts**: Don't ignore scope creep warnings
+3. **Act on Alerts**: Don't ignore scope check warnings
 4. **Use Kill-Switch Wisely**: Pause immediately when client becomes unreasonable
 5. **Document Everything**: All changes tracked automatically for your protection

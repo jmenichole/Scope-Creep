@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +23,14 @@
  */
 
 /**
- * AI-powered Scope Creep Detector
- * Analyzes client messages to detect scope creep patterns
+ * AI-powered Scope Check Detector
+ * Analyzes client messages to detect scope check patterns
  */
 
-class ScopeCreepDetector {
+class ScopeCheckDetector {
   constructor() {
-    // Common scope creep phrases and patterns
-    this.scopeCreepPatterns = [
+    // Common scope check phrases and patterns
+    this.scopeCheckPatterns = [
       /can we (also|just|quickly)/i,
       /while you're at it/i,
       /one more (thing|quick thing)/i,
@@ -60,13 +60,13 @@ class ScopeCreepDetector {
   }
 
   /**
-   * Analyze a message for scope creep indicators
+   * Analyze a message for scope check indicators
    */
   async analyzeMessage(projectId, message, sender) {
     const lowerMessage = message.toLowerCase();
     
-    // Check for scope creep patterns
-    const scopeCreepMatches = this.scopeCreepPatterns.filter(pattern => 
+    // Check for scope check patterns
+    const scopeCheckMatches = this.scopeCheckPatterns.filter(pattern => 
       pattern.test(message)
     );
     
@@ -74,26 +74,26 @@ class ScopeCreepDetector {
       pattern.test(message)
     );
     
-    const isScopeCreep = scopeCreepMatches.length > 0;
+    const isScopeCheck = scopeCheckMatches.length > 0;
     const isPassiveAggressive = passiveAggressiveMatches.length > 0;
     
     // Estimate additional hours based on message content
     const estimatedHours = this.estimateAdditionalWork(message);
     
     // Calculate confidence score
-    const confidence = this.calculateConfidence(scopeCreepMatches, passiveAggressiveMatches, message);
+    const confidence = this.calculateConfidence(scopeCheckMatches, passiveAggressiveMatches, message);
     
     return {
       projectId,
       message,
       sender,
-      isScopeCreep,
+      isScopeCheck,
       isPassiveAggressive,
       confidence,
-      matchedPatterns: scopeCreepMatches.map(p => p.source),
+      matchedPatterns: scopeCheckMatches.map(p => p.source),
       estimatedAdditionalHours: estimatedHours,
-      flags: this.generateFlags(isScopeCreep, isPassiveAggressive, estimatedHours),
-      recommendedAction: this.recommendAction(isScopeCreep, estimatedHours, confidence),
+      flags: this.generateFlags(isScopeCheck, isPassiveAggressive, estimatedHours),
+      recommendedAction: this.recommendAction(isScopeCheck, estimatedHours, confidence),
       timestamp: new Date().toISOString()
     };
   }
@@ -143,10 +143,10 @@ class ScopeCreepDetector {
     score += scopeMatches.length * 25;
     score += passiveMatches.length * 15;
     
-    // Check message length (longer = more likely to be scope creep)
+    // Check message length (longer = more likely to be scope check)
     if (message.length > 200) score += 10;
     
-    // Check for question marks (scope creep often phrased as questions)
+    // Check for question marks (scope check often phrased as questions)
     const questionMarks = (message.match(/\?/g) || []).length;
     score += Math.min(questionMarks * 5, 20);
     
@@ -156,10 +156,10 @@ class ScopeCreepDetector {
   /**
    * Generate warning flags
    */
-  generateFlags(isScopeCreep, isPassiveAggressive, hours) {
+  generateFlags(isScopeCheck, isPassiveAggressive, hours) {
     const flags = [];
     
-    if (isScopeCreep) {
+    if (isScopeCheck) {
       flags.push('✨ SCOPE_AWARENESS');
     }
     
@@ -181,8 +181,8 @@ class ScopeCreepDetector {
   /**
    * Recommend action based on analysis
    */
-  recommendAction(isScopeCreep, hours, confidence) {
-    if (!isScopeCreep) {
+  recommendAction(isScopeCheck, hours, confidence) {
+    if (!isScopeCheck) {
       return 'CONTINUE';
     }
     
@@ -233,4 +233,4 @@ class ScopeCreepDetector {
   }
 }
 
-export const scopeCreepDetector = new ScopeCreepDetector();
+export const scopeCheckDetector = new ScopeCheckDetector();

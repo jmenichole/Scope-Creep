@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2024 Scope Creep Insurance
+ * Copyright (c) 2024 Scope Check Insurance
  * 
- * This file is part of Scope Creep Insurance.
+ * This file is part of Scope Check Insurance.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.animation = 'rainbow 3s linear infinite';
             setTimeout(() => {
                 document.body.style.animation = '';
-                alert('🎉 You found the easter egg! You\'re now immune to scope creep... for 5 minutes. 😄');
+                alert('🎉 You found the easter egg! You\'re now immune to scope check... for 5 minutes. 😄');
             }, 3000);
         }
     });
@@ -290,6 +290,6 @@ window.addEventListener('load', () => {
 });
 
 // Console message for developers
-console.log('%c🛡️ Scope Creep Insurance', 'font-size: 24px; font-weight: bold; color: #4f46e5;');
+console.log('%c🛡️ Scope Check Insurance', 'font-size: 24px; font-weight: bold; color: #4f46e5;');
 console.log('%cLooking under the hood? We like your style!', 'font-size: 14px; color: #6b7280;');
-console.log('%cCheck out our API: https://github.com/jmenichole/Scope-Creep', 'font-size: 12px; color: #10b981;');
+console.log('%cCheck out our API: https://github.com/jmenichole/Scope-Check', 'font-size: 12px; color: #10b981;');

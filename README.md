@@ -4,7 +4,7 @@
 
 **Theme:** Calm Productivity App with a Backbone
 
-🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Creep/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
+🌐 **[View Live Demo](https://jmenichole.github.io/Scope-Check/)** | 📖 [API Documentation](#-api-endpoints) | 💻 [Examples](EXAMPLES.md)
 
 ## What It Is
 
@@ -104,7 +104,7 @@ Content-Type: application/json
 }
 ```
 
-### Analyze Message for Scope Creep
+### Analyze Message for Scope Check
 ```http
 POST /api/analyze-message
 Content-Type: application/json
@@ -119,7 +119,7 @@ Content-Type: application/json
 **Response:**
 ```json
 {
-  "isScopeCreep": true,
+  "isScopeCheck": true,
   "confidence": 85,
   "estimatedAdditionalHours": 3,
   "flags": ["✨ SCOPE_AWARENESS", "📝 MINOR_ADDITIONAL_WORK"],
@@ -195,11 +195,11 @@ Perfect for:
 - 📊 Consultants
 - 🎥 Video editors
 - 📸 Photographers
-- 💼 Any freelancer dealing with scope creep
+- 💼 Any freelancer dealing with scope check
 
 ## 🧠 How It Works
 
-### Scope Creep Detection
+### Scope Check Detection
 
 The AI analyzes client messages using pattern matching and keyword analysis:
 
@@ -257,7 +257,7 @@ System: Resumes project, updates budget, releases payments
 
 ## 🌐 GitHub Pages Website
 
-A professional landing page is available at: **[https://jmenichole.github.io/Scope-Creep/](https://jmenichole.github.io/Scope-Creep/)**
+A professional landing page is available at: **[https://jmenichole.github.io/Scope-Check/](https://jmenichole.github.io/Scope-Check/)**
 
 The website showcases:
 - 🎯 Product features and benefits

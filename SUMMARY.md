@@ -1,4 +1,4 @@
-# Implementation Summary - Scope Creep Insurance (SaaS)
+# Implementation Summary - Scope Check Insurance (SaaS)
 
 ## Project Overview
 
@@ -6,7 +6,7 @@
 
 **Type:** Traditional SaaS Application (NOT blockchain/crypto)
 
-**Purpose:** AI-powered tool that automatically detects and manages freelance scope creep
+**Purpose:** AI-powered tool that automatically detects and manages freelance scope check
 
 ## What Was Built
 
@@ -18,7 +18,7 @@
 - JSON request/response
 - Health check endpoint
 
-**AI Scope Creep Detector** (`src/ai/scopeCreepDetector.js`)
+**AI Scope Check Detector** (`src/ai/scopeCheckDetector.js`)
 - 15+ pattern detection rules
 - Work hour estimation engine
 - Confidence scoring (0-100%)
@@ -33,14 +33,14 @@
 - Health score calculation
 
 **Alert Service** (`src/services/alertService.js`)
-- Real-time scope creep alerts
+- Real-time scope check alerts
 - Severity classification
 - Notification management
 - Alert history tracking
 
 ## Key Features
 
-✅ **AI Detection** - Automatically identifies scope creep in messages
+✅ **AI Detection** - Automatically identifies scope check in messages
 ✅ **Work Estimation** - Calculates additional hours required
 ✅ **Kill-Switch** - Pause projects instantly
 ✅ **Renegotiation** - Automated quote generation
@@ -52,7 +52,7 @@
 
 ```
 POST   /api/projects              - Create project
-POST   /api/analyze-message       - Detect scope creep
+POST   /api/analyze-message       - Detect scope check
 POST   /api/translate-message     - Translate to legal English
 POST   /api/projects/:id/pause    - Activate kill-switch
 POST   /api/projects/:id/renegotiate - Create renegotiation
@@ -62,7 +62,7 @@ GET    /api/projects/:id          - Get project status
 ## Testing
 
 **10 automated tests** - All passing ✅
-- Scope creep detection tests
+- Scope check detection tests
 - Pattern matching tests
 - Agreement management tests
 - Renegotiation tests
@@ -107,16 +107,16 @@ Freelancers who've heard "this'll just take five minutes" and aged 12 years:
 - Content writers
 - Consultants
 - Video editors
-- Any service provider dealing with scope creep
+- Any service provider dealing with scope check
 
 ## Example Detection
 
 **Client says:** "Can we just add a few animations? Real quick, while you're at it!"
 
 **AI detects:**
-- ✅ Scope creep: 85% confidence
+- ✅ Scope check: 85% confidence
 - ✅ Estimated hours: 4
-- ✅ Flags: SCOPE_CREEP_DETECTED, MINOR_ADDITIONAL_WORK
+- ✅ Flags: SCOPE_CHECK_DETECTED, MINOR_ADDITIONAL_WORK
 - ✅ Recommended action: SEND_RENEGOTIATION_REQUEST
 
 **System action:**
