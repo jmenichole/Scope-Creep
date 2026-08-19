@@ -165,8 +165,11 @@ policies ship as SQL migrations under `supabase/migrations/`.
   health score, renegotiation math.
 - **Integration:** server actions against a local Supabase, including an **RLS test**
   proving user A cannot read user B's project.
-- **E2E (Playwright):** sign in with a **seeded email/password test user** (to avoid
-  magic-link flakiness) → create project → analyze → see the alert.
+- **E2E (Playwright):** because the product UI only offers magic link + Google, tests
+  authenticate out-of-band — either a test-only email/password user created via the
+  Supabase admin API, or a session minted with the service-role key and injected as a
+  cookie — then run: create project → analyze → see the alert. (No email/password
+  login is exposed in the product UI.)
 - **Manual E2E** in the running app for the walkthrough/demo.
 
 ## 10. Deployment & external setup
