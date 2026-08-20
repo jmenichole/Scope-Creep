@@ -37,3 +37,7 @@ Thumbs.db
 # Build artifacts
 dist/
 build/
+.next/
+next-env.d.ts
+playwright-report/
+test-results/
