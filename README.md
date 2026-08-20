@@ -1,4 +1,14 @@
-# Boundari.ai
+# Scope Check
+
+**Tagline:** Secure your scope. Save your sanity.
+
+The product is now a **Next.js + Supabase** app (Foundation). See **[README-app.md](./README-app.md)** to run it locally and **[MANUAL_STEPS.md](./MANUAL_STEPS.md)** for hosted setup (Supabase Cloud, Google OAuth, Vercel) — those steps require your accounts.
+
+The previous Express prototype lives in `legacy/`. The marketing landing page is still in `docs/`.
+
+---
+
+# Boundari.ai (legacy prototype notes)
 
 **Tagline:** "Nice freelancer. Mean contracts."
 
